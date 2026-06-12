@@ -1,0 +1,468 @@
+/* ===== MODERN INTERACTIVE ANIME WEBSITE ===== */
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-start: #0a0512;
+    --bg-end: #120c1f;
+    --accent-magenta: #ff007f;
+    --accent-purple: #4b2b8d;
+    --neon-glow: #ff496a;
+    --text-soft: #e6dbe7;
+    --text-muted: #c7b7cc;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 0, 127, 0.2);
+}
+
+body {
+    background: var(--bg-start);
+    color: #fff;
+    font-family: 'Orbitron', 'Inter', sans-serif;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Background animated neon ambient lights */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 15% 20%, rgba(255, 0, 127, 0.15) 0%, transparent 45%),
+                radial-gradient(circle at 85% 75%, rgba(75, 43, 141, 0.2) 0%, transparent 50%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* ===== HIGH-TECH NAVIGATION ===== */
+nav {
+    background: rgba(10, 5, 18, 0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4), inset 0 -1px 0 rgba(255, 0, 127, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: 900;
+    font-family: 'Audiowide', sans-serif;
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, #fff 30%, var(--neon-glow));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 12px rgba(255, 0, 127, 0.6));
+    transition: filter 0.3s ease;
+}
+
+.logo:hover {
+    filter: drop-shadow(0 0 20px var(--neon-glow));
+}
+
+/* Centralized neon pulsing logic */
+@keyframes neonPulse {
+    0%, 100% {
+        text-shadow: 0 0 8px rgba(255,0,127,0.6), 0 0 20px rgba(255,0,127,0.3);
+    }
+    50% {
+        text-shadow: 0 0 15px rgba(255,0,127,0.9), 0 0 35px rgba(255,0,127,0.5);
+    }
+}
+
+.main-title,
+.section-title,
+.hero h1,
+.anime-info h1 {
+    color: #ffffff;
+    animation: neonPulse 3.5s ease-in-out infinite;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+}
+
+.nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--neon-glow);
+    box-shadow: 0 0 8px var(--neon-glow);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-links a:hover {
+    color: #fff;
+    text-shadow: 0 0 10px var(--neon-glow);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* ===== IMMERSIVE HERO SECTION ===== */
+.hero {
+    padding: 120px 40px;
+    text-align: center;
+    background: 
+        linear-gradient(135deg, rgba(10, 5, 18, 0.95), rgba(20, 8, 35, 0.85)),
+        url('/images/anime cover.jpg') center/cover no-repeat;
+    background-blend-mode: overlay;
+    border-bottom: 1px solid var(--glass-border);
+    position: relative;
+}
+
+.hero h1 {
+    font-size: clamp(32px, 5.5vw, 60px);
+    font-weight: 900;
+    font-family: 'Audiowide', sans-serif;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.hero p {
+    font-size: 16px;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 35px auto;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+/* ===== HIGH-TECH SEARCH BAR ===== */
+.search-box form {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 18px 25px;
+    border: 2px solid var(--glass-border);
+    border-radius: 30px;
+    background: rgba(10, 5, 18, 0.7);
+    color: white;
+    font-size: 15px;
+    font-family: 'Orbitron', sans-serif;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    outline: none;
+    backdrop-filter: blur(8px);
+}
+
+.search-box input:focus {
+    border-color: var(--neon-glow);
+    box-shadow: 0 0 20px rgba(255, 0, 127, 0.35);
+    background: rgba(10, 5, 18, 0.9);
+}
+
+.search-box button {
+    padding: 18px 40px;
+    border: none;
+    background: linear-gradient(135deg, var(--neon-glow), #b0005d);
+    color: #fff;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 800;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
+}
+
+.search-box button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(255, 0, 127, 0.7);
+}
+
+/* ===== CYBERPUNK SECTION TITLE ===== */
+.section-title {
+    padding: 60px 50px 20px 50px;
+    font-size: 36px;
+    font-weight: 900;
+    font-family: 'Audiowide', sans-serif;
+    letter-spacing: 1px;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--neon-glow), transparent);
+    margin-top: 12px;
+    box-shadow: 0 0 8px var(--neon-glow);
+}
+
+/* ===== INTERACTIVE ANIME CARDS ===== */
+.anime-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 35px;
+    padding: 30px 50px 80px 50px;
+}
+
+.anime-grid a {
+    text-decoration: none;
+}
+
+.card {
+    background: var(--glass-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Futuristic corner light layout overlay */
+.card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    padding: 1px;
+    background: linear-gradient(to bottom, rgba(255,0,127,0.5), transparent, rgba(75,43,141,0.3));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(255, 0, 127, 0.6);
+    box-shadow: 0 15px 35px rgba(255, 0, 127, 0.25);
+}
+
+.card:hover::after {
+    opacity: 1;
+}
+
+.card img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.card:hover img {
+    transform: scale(1.06);
+}
+
+.card-content {
+    padding: 22px;
+    background: linear-gradient(to top, rgba(10, 5, 18, 0.95), rgba(10, 5, 18, 0.7));
+}
+
+.card-content h3 {
+    margin-bottom: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.3;
+    animation: none; /* Disables pulse on small text to ensure readability */
+    text-shadow: none;
+}
+
+.card:hover .card-content h3 {
+    color: var(--neon-glow);
+    text-shadow: 0 0 10px rgba(255, 0, 127, 0.3);
+}
+
+.card-content p {
+    color: var(--text-muted);
+    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+}
+
+/* ===== PREMIUM ANIME DETAIL PAGE ===== */
+.anime-page {
+    display: flex;
+    gap: 60px;
+    padding: 80px 50px;
+    align-items: center;
+    background: 
+        linear-gradient(135deg, rgba(10, 5, 18, 0.97), rgba(25, 10, 45, 0.93)),
+        url('/images/anime cover.jpg') center/cover no-repeat fixed;
+    min-height: 100vh;
+}
+
+.anime-page img {
+    width: 340px;
+    height: 480px;
+    border-radius: 16px;
+    object-fit: cover;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    border: 1px solid var(--glass-border);
+    transition: all 0.4s ease;
+}
+
+.anime-page img:hover {
+    transform: scale(1.02);
+    border-color: var(--neon-glow);
+    box-shadow: 0 0 40px rgba(255, 0, 127, 0.3);
+}
+
+.anime-info {
+    flex: 1;
+    background: rgba(15, 8, 25, 0.65);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+
+.anime-info h1 {
+    font-size: 44px;
+    font-weight: 900;
+    font-family: 'Audiowide', sans-serif;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+.anime-info p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #d1c7d4;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 20px;
+}
+
+.anime-info strong {
+    color: var(--neon-glow);
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+/* ===== ADVANCED GLASSMORPHIC REVIEW SECTION ===== */
+.review-box {
+    background: rgba(15, 8, 25, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 40px;
+    margin-top: 40px;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6);
+}
+
+.review-box h2 {
+    font-size: 26px;
+    font-weight: 800;
+    font-family: 'Audiowide', sans-serif;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.review-box textarea {
+    width: 100%;
+    height: 150px;
+    padding: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    background: rgba(10, 5, 18, 0.6);
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.review-box textarea:focus {
+    border-color: var(--neon-glow);
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.25);
+    background: rgba(10, 5, 18, 0.8);
+}
+
+.review-box button {
+    margin-top: 25px;
+    padding: 16px 40px;
+    border: none;
+    background: linear-gradient(135deg, var(--neon-glow), #b0005d);
+    color: #fff;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 800;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(255, 0, 127, 0.3);
+}
+
+.review-box button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(255, 0, 127, 0.6);
+}
+
+/* Review Feed Cards */
+.review-item {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-left: 4px solid var(--neon-glow);
+    transition: all 0.3s ease;
+}
+
+.review-item:hover {
+    background: rgba(255, 255, 255, 0.04);
+    transform: translateX(5px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.review-item h4 {
+    color: var(--neon-glow);
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 12px;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+}
+
+.review-item p {
+    color: #c7b7cc;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.7;
+}

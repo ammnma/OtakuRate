@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{anime.title}} - Otakurate</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<nav>
+    <div class="logo neon">Otakurate</div>
+
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/search?search=">Browse</a>
+    </div>
+</nav>
+
+<div class="anime-page">
+
+    <img src="{{anime.image}}" alt="{{anime.title}}">
+
+    <div class="anime-info">
+
+        <h1>{{anime.title}}</h1>
+
+        <p>
+            {{anime.description}}
+        </p>
+
+        <p>
+            <strong>📂 Genre:</strong>
+            {{anime.genre}}
+        </p>
+
+        <p>
+            <strong>⭐ Rating:</strong>
+            {{anime.rating}}/10
+        </p>
+
+        <p>
+            <strong>🎬 Episodes:</strong>
+            {{anime.episodes}}
+        </p>
+         
+         <p>🏢 <strong>Studio:</strong> {{anime.studio}}</p>
+        <p>📅 <strong>Release Year:</strong> {{anime.release_year}}</p>
+         <p>📺 <strong>Status:</strong> {{anime.status}}</p>
+
+        <div class="review-box">
+
+            <h2>💬 Reviews & Ratings</h2>
+
+            {{#if reviews.length}}
+                {{#each reviews}}
+                    <div class="review-item">
+                        <h4>⭐ {{this.rating}}/10</h4>
+                        <p>{{this.comment}}</p>
+                    </div>
+                {{/each}}
+            {{else}}
+                <p style="color: #aaa; font-style: italic;">No reviews yet. Be the first to share your thoughts!</p>
+            {{/if}}
+
+            <a href="/review/{{anime._id}}" style="text-decoration: none;">
+                <button>
+                    ✏️ Add Your Review
+                </button>
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

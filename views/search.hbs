@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - Otakurate</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body class="search-page">
+
+<nav>
+    <div class="logo neon">Otakurate</div>
+
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/search?search=">Browse</a>
+    </div>
+</nav>
+
+<div class="section-title">
+    🔍 Search Results
+</div>
+
+<div class="anime-grid">
+
+{{#each animeData}}
+
+    <a
+        href="/anime/{{this._id}}"
+        style="text-decoration:none;color:white;"
+    >
+
+        <div class="card">
+
+            <img src="{{this.image}}" alt="{{this.title}}">
+
+            <div class="card-content">
+
+                <h3>{{this.title}}</h3>
+
+                <p>{{this.genre}}</p>
+
+            </div>
+
+        </div>
+
+    </a>
+
+{{/each}}
+
+</div>
+
+</body>
+</html>

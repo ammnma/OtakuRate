@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otakurate - Discover Anime Beyond Ratings</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<nav>
+    <div class="logo neon">Otakurate</div>
+
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/search?search=">Browse</a>
+    </div>
+</nav>
+
+<div class="hero">
+    <h1 class="main-title neon">Discover Anime Beyond Ratings</h1>
+
+    <p>
+        Explore reviews, moods, and vibe scores for your favorite anime.
+    </p>
+
+    <div class="search-box">
+
+        <form action="/search" method="GET">
+
+            <input
+                type="text"
+                name="search"
+                placeholder="Search anime by title, genre, or mood..."
+            >
+
+            <button type="submit">
+                🔍 Search
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+<div class="section-title neon">
+    Trending Anime
+</div>
+
+<div class="anime-grid">
+
+{{#each animeData}}
+
+    <a
+        href="/anime/{{this._id}}"
+        style="text-decoration:none;color:white;"
+    >
+
+        <div class="card">
+
+            <img src="{{this.image}}" alt="{{this.title}}">
+
+            <div class="card-content">
+
+                <h3>{{this.title}}</h3>
+
+                <p>
+                    {{this.genre}}
+                </p>
+
+            </div>
+
+        </div>
+
+    </a>
+
+{{/each}}
+
+</div>
+
+</body>
+</html>
